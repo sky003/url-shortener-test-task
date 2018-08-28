@@ -114,7 +114,7 @@ class UrlService implements UrlServiceInterface
     {
         $shortId = $this->hashids->encode($url->getId());
         $shortAbsoluteUrl = $this->urlGenerator->generate(
-            'short_url',
+            'open_url',
             ['short_id' => $shortId],
             UrlGeneratorInterface::ABSOLUTE_URL
         );
