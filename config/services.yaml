@@ -4,7 +4,12 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+
     locale: 'en'
+
+    hashids.salt: ''
+    hashids.minHashLength: 0
+    hashids.alphabet: ''
 
 services:
     # default configuration for services in *this* file
@@ -27,5 +32,19 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    # application services below
+
+    # library that generates short, unique, non-sequential ids from numbers
+    Hashids\Hashids: ~
+
+    # serializer configuration
+    Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor: ~
+    # the reflection property extractor required to normalize datetime object
+    Symfony\Component\Serializer\Normalizer\ObjectNormalizer:
+        arguments:
+            $propertyTypeExtractor: '@Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor'
+        tags:
+            - { name: 'serializer.normalizer' }
+    Symfony\Component\Serializer\Normalizer\DateTimeNormalizer:
+        tags:
+            - { name: 'serializer.normalizer', priority: 10 }
