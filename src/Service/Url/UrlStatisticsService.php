@@ -6,6 +6,9 @@ namespace App\Service\Url;
 
 use App\Entity\Statistic;
 use App\Entity\Url;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Selectable;
 use Doctrine\ORM\EntityManagerInterface;
 use GeoIp2\Exception\AddressNotFoundException;
 use GeoIp2\ProviderInterface;
@@ -16,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @author Anton Pelykh <anton.pelykh.dev@gmail.com>
  */
-class UrlStatisticsService implements UrlStatisticsServiceInterface
+class UrlStatisticsService implements UrlStatisticsServiceInterface, UrlStatisticsCrudServiceInterface
 {
     /**
      * @var EntityManagerInterface
@@ -59,7 +62,67 @@ class UrlStatisticsService implements UrlStatisticsServiceInterface
             );
         } catch (AddressNotFoundException $e) {}
 
+        $this->create($statistic);
+    }
+
+    /**
+     * @param int $id The statistic record identifier.
+     *
+     * @return Statistic|null
+     */
+    public function get(int $id): ?Statistic
+    {
+        throw new \BadMethodCallException(
+            \sprintf('Method "%s" not implemented.', __METHOD__)
+        );
+    }
+
+    /**
+     * Returns the list of the statistic records.
+     *
+     * @param Criteria $criteria
+     *
+     * @return Collection
+     */
+    public function getList(Criteria $criteria): Collection
+    {
+        $repository = $this->entityManager->getRepository(Statistic::class);
+
+        if (!$repository instanceof Selectable) {
+            throw new \LogicException(
+                sprintf('Repository must implement "%s" interface.', Selectable::class)
+            );
+        }
+
+        return $repository->matching($criteria);
+    }
+
+    /**
+     * @param Statistic $statistic The statistic record which need to be created.
+     */
+    public function create(Statistic $statistic): void
+    {
         $this->entityManager->persist($statistic);
         $this->entityManager->flush();
+    }
+
+    /**
+     * @param Statistic $statistic The statistic record which need to be updated.
+     */
+    public function update(Statistic $statistic): void
+    {
+        throw new \BadMethodCallException(
+            \sprintf('Method "%s" not implemented.', __METHOD__)
+        );
+    }
+
+    /**
+     * @param Statistic $statistic The statistic record which need to be deleted.
+     */
+    public function delete(Statistic $statistic): void
+    {
+        throw new \BadMethodCallException(
+            \sprintf('Method "%s" not implemented.', __METHOD__)
+        );
     }
 }
