@@ -48,3 +48,6 @@ services:
     Symfony\Component\Serializer\Normalizer\DateTimeNormalizer:
         tags:
             - { name: 'serializer.normalizer', priority: 10 }
+
+    # link geoip2 database reader provider to ProviderInterface
+    GeoIp2\ProviderInterface: '@geoip2.reader'
