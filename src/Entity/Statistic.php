@@ -45,7 +45,7 @@ class Statistic
      * @var string The ISO 3166-1 (alpha-2) country code. The same thing as with {@see Statistic::$userAgent}. That's
      * not the best way to store this value, but it's enough for the test task.
      *
-     * @ORM\Column(type="string", length=2)
+     * @ORM\Column(type="string", length=2, nullable=true)
      */
     private $country;
     /**
