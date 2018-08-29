@@ -21,6 +21,16 @@ class ShortUrl
     public $shortUrl;
 
     /**
+     * ShortUrl constructor.
+     *
+     * @param null|string $id
+     */
+    public function __construct(?string $id = null)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @return string
      */
     public function getId(): string
