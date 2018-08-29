@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @author Anton Pelykh <anton.pelykh.dev@gmail.com>
  */
-class CreateShortUrl
+class Url
 {
     /**
      * @var string
@@ -40,7 +40,7 @@ class CreateShortUrl
      *
      * @return self
      */
-    public function setLongUrl(?string $longUrl): CreateShortUrl
+    public function setLongUrl(?string $longUrl): Url
     {
         $this->longUrl = $longUrl;
 
@@ -60,7 +60,7 @@ class CreateShortUrl
      *
      * @return self
      */
-    public function setExpiredAt(?\DateTime $expiredAt): CreateShortUrl
+    public function setExpiredAt(?\DateTime $expiredAt): Url
     {
         $this->expiredAt = $expiredAt;
 

@@ -15,7 +15,7 @@ use App\Entity;
  */
 class UrlAssembler
 {
-    public function writeEntity(Request\CreateShortUrl $dto): Entity\Url
+    public function writeEntity(Request\Url $dto): Entity\Url
     {
         $entity = new Entity\Url();
         $entity
@@ -25,9 +25,9 @@ class UrlAssembler
         return $entity;
     }
 
-    public function writeDto(Entity\Url $urlEntity, Entity\ShortUrl $shortUrlEntity): Response\CreateShortUrl
+    public function writeDto(Entity\Url $urlEntity, Entity\ShortUrl $shortUrlEntity): Response\Url
     {
-        $dto = new Response\CreateShortUrl();
+        $dto = new Response\Url();
         $dto
             ->setShortUrl($shortUrlEntity->getShortUrl())
             ->setLongUrl($urlEntity->getLongUrl())

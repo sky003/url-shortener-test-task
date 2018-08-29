@@ -7,7 +7,7 @@ namespace App\Dto\Response;
 /**
  * @author Anton Pelykh <anton.pelykh.dev@gmail.com>
  */
-class CreateShortUrl
+class Url
 {
     /**
      * @var string
@@ -39,7 +39,7 @@ class CreateShortUrl
      *
      * @return self
      */
-    public function setShortUrl(string $shortUrl): CreateShortUrl
+    public function setShortUrl(string $shortUrl): Url
     {
         $this->shortUrl = $shortUrl;
 
@@ -59,7 +59,7 @@ class CreateShortUrl
      *
      * @return self
      */
-    public function setLongUrl(string $longUrl): CreateShortUrl
+    public function setLongUrl(string $longUrl): Url
     {
         $this->longUrl = $longUrl;
 
@@ -79,7 +79,7 @@ class CreateShortUrl
      *
      * @return self
      */
-    public function setExpiredAt(?\DateTime $expiredAt): CreateShortUrl
+    public function setExpiredAt(?\DateTime $expiredAt): Url
     {
         $this->expiredAt = $expiredAt;
 
@@ -99,7 +99,7 @@ class CreateShortUrl
      *
      * @return self
      */
-    public function setCreatedAt(\DateTimeImmutable $createdAt): CreateShortUrl
+    public function setCreatedAt(\DateTimeImmutable $createdAt): Url
     {
         $this->createdAt = $createdAt;
 

@@ -69,10 +69,10 @@ class UrlController extends Controller
      */
     public function create(Request $request): JsonResponse
     {
-        /** @var Dto\Request\CreateShortUrl $requestDto */
+        /** @var Dto\Request\Url $requestDto */
         $requestDto = $this->serializer->deserialize(
             $request->getContent(),
-            Dto\Request\CreateShortUrl::class,
+            Dto\Request\Url::class,
             'json'
         );
 
