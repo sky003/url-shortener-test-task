@@ -15,23 +15,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class UrlController extends Controller
 {
     /**
-     * Create a new URL.
-     *
-     * @param Request $request
-     *
-     * @return Response
-     *
-     * @Route(
-     *     path="/",
-     *     name="create_url",
-     * )
-     */
-    public function create(Request $request): Response
-    {
-        return $this->render('url/create.html.twig');
-    }
-
-    /**
      * Makes a redirect to long URL.
      *
      * @param Request $request
