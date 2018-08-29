@@ -30,7 +30,7 @@ class CreateShortUrl
     /**
      * @return string
      */
-    public function getLongUrl(): string
+    public function getLongUrl(): ?string
     {
         return $this->longUrl;
     }
@@ -40,7 +40,7 @@ class CreateShortUrl
      *
      * @return self
      */
-    public function setLongUrl(string $longUrl): CreateShortUrl
+    public function setLongUrl(?string $longUrl): CreateShortUrl
     {
         $this->longUrl = $longUrl;
 
