@@ -7,7 +7,6 @@ namespace App\Controller\Api;
 use App\Dto\Assembler\UrlAssembler;
 use App\Dto;
 use App\Service\Url\UrlServiceInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,7 +22,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
  *
  * @Route(path="/api/v1")
  */
-class UrlController extends Controller
+class UrlController
 {
     /**
      * @var SerializerInterface
