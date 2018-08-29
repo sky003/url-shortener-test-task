@@ -9,8 +9,8 @@ class App extends React.Component {
   render() {
     return (
       <Switch>
+        <Route path="/:shortId/stats" component={StatisticPage} />
         <Route path="/" component={IndexPage} />
-        <Route path="/{shortId}/stats" component={StatisticPage} />
       </Switch>
     );
   }
