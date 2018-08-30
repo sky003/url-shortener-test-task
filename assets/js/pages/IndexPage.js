@@ -112,10 +112,18 @@ class IndexPage extends React.Component {
                   </Grid>
                 </Grid>
               </form>
+
               {this.state.shortUrl && (
                 <div className={classes.shortUrl}>
+
                   <Typography variant="caption" align="center" gutterBottom>Your short URL</Typography>
-                  <Typography variant="display2" align="center">{this.state.shortUrl}</Typography>
+                  <Typography variant="display2" align="center" gutterBottom>{this.state.shortUrl}</Typography>
+
+                  <Typography variant="caption" align="center" gutterBottom>View URL statistics</Typography>
+                  <Typography variant="display2" align="center" gutterBottom>
+                    <a href={this.state.shortUrl + '/stats'} target="_blank">{this.state.shortUrl + '/stats'}</a>
+                  </Typography>
+
                 </div>
               )}
 
