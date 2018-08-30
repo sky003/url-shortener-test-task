@@ -64,6 +64,11 @@ class UrlController extends Controller
             throw new NotFoundHttpException();
         }
 
+        // Check the URL lifetime before redirect.
+        if ($urlEntity->getExpiredAt() < new \DateTime()) {
+            throw new NotFoundHttpException();
+        }
+
         $this->statisticsService->logUrlOpen($urlEntity, $request);
 
         return new RedirectResponse($urlEntity->getLongUrl());
